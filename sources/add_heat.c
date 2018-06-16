@@ -6,21 +6,11 @@
 /*   By: rhohls <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/14 08:26:35 by rhohls            #+#    #+#             */
-/*   Updated: 2018/06/14 13:35:39 by rhohls           ###   ########.fr       */
+/*   Updated: 2018/06/16 11:27:08 by rhohls           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
-
-int in_board(int row, int col, t_fill game)
-{
-	if (row < 0 || col < 0)
-		return (0);
-	else if (row > game->ROW(m_size) || col < game->COL(m_size))
-		return (0);
-	else
-		return (1);
-}
 
 /*
 ** from top left of square add "heat units" in square shape
@@ -54,7 +44,11 @@ void add_heat(int *pos, t_fill game, int mult)
 	grd_size = 7;
 	loop = 3;
 	heat = 1;
-
+	
+	if (in_board(ROW(pos), COL(pos), game))
+		game->heat_map[ROW(pos)][COL(pos)] += 4 * mult;
+	else
+		return ;
 	while (loop > 0)
 	{
 		apply_heat(pos, grd_size, heat * mult, game);
