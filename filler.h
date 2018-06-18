@@ -6,7 +6,7 @@
 /*   By: rhohls <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/13 09:39:43 by rhohls            #+#    #+#             */
-/*   Updated: 2018/06/16 11:32:30 by rhohls           ###   ########.fr       */
+/*   Updated: 2018/06/18 15:23:22 by rhohls           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,14 @@ typedef struct		s_fill
 	int				m_size[2];
 	int				p_size[2];
 	int				**heat_map;
-	int				p_cent[2];
+	int				place[2];
 }					t_fill
 
-int 	valid_move(t_fill game, int *pos);
-void 	piece_cent(t_fill game);
-void 	add_heat(int *pos, t_fill game, int mult);
-int 	in_board(int row, int col, t_fill game);
-int		get_next_line(const int fd, char **line);
+void    gen_heatmap(t_fill game);
+void    gen_map(t_fill game);
+void    gen_piece(t_fill game);
+void    get_piece(t_fill game);
+int		valid_move(t_fill game, int *pos);
+
 #endif
 
