@@ -6,7 +6,7 @@
 /*   By: rhohls <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/13 09:39:43 by rhohls            #+#    #+#             */
-/*   Updated: 2018/06/19 18:00:31 by rhohls           ###   ########.fr       */
+/*   Updated: 2018/06/19 07:32:04 by rhohls           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,6 @@
 # define ROW(x) x[0]
 # define COL(x) x[1]
 # define OP_TOK(x) 
-
-#include <stdlib.h>
-#include "./includes/libft.h"
-#include "./includes/get_next_line.h"
-#include <stdio.h>
 
 typedef struct		s_fill
 {
@@ -32,19 +27,16 @@ typedef struct		s_fill
 	int				p_size[2];
 	int				**heat_map;
 	int				place[2];
-	int				initial;
 }					t_fill;
 
 void    gen_heatmap(t_fill *game);
 void    gen_map(t_fill *game);
 void    gen_piece(t_fill *game);
-void    get_piece(t_fill *game, char *line, int fd);
+void    get_piece(t_fill *game);
 int		valid_move(t_fill *game, int *pos);
 void    place_piece(t_fill *game);
 void 	decide(t_fill *game);
 int		valid_move_static(t_fill *game, int rowin, int colin);
-int    play_game(int fd);
-int		in_board(int row, int col, t_fill *game);
-void printstate(t_fill *game);
+void    get_game();
 #endif
 

@@ -6,17 +6,17 @@
 /*   By: rhohls <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/14 08:26:35 by rhohls            #+#    #+#             */
-/*   Updated: 2018/06/16 11:27:08 by rhohls           ###   ########.fr       */
+/*   Updated: 2018/06/19 08:13:57 by rhohls           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "filler.h"
+#include "../filler.h"
 
 /*
 ** from top left of square add "heat units" in square shape
 */
 
-void apply_heat(int *start, int grd_size, int heat, t_fill game)
+void apply_heat(int *start, int grd_size, int heat, t_fill *game)
 {
 	int row;
 	int col;
@@ -27,7 +27,7 @@ void apply_heat(int *start, int grd_size, int heat, t_fill game)
 		col = 0;
 		while (col < grd_size)
 		{
-			if (in_board(ROW(start) + row, COL(start) + col, t_fill game))
+			if (in_board(ROW(start) + row, COL(start) + col, game))
 				game->heat_map[ROW(start) + row][COL(start) + col] += heat;
 			col++;
 		}
@@ -35,7 +35,7 @@ void apply_heat(int *start, int grd_size, int heat, t_fill game)
 	}	
 }
 
-void add_heat(int *pos, t_fill game, int mult)
+void add_heat(int *pos, t_fill *game, int mult)
 {
 	int grd_size;
 	int loop;

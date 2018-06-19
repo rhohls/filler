@@ -6,11 +6,12 @@
 /*   By: rhohls <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/13 13:11:55 by rhohls            #+#    #+#             */
-/*   Updated: 2018/06/13 15:19:59 by rhohls           ###   ########.fr       */
+/*   Updated: 2018/06/19 07:43:36 by rhohls           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
+#include <stdlib.h>
 
 int valid_move(t_fill game, int *placement)
 {
