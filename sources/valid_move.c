@@ -6,11 +6,11 @@
 /*   By: rhohls <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/14 07:23:46 by rhohls            #+#    #+#             */
-/*   Updated: 2018/06/19 07:37:32 by rhohls           ###   ########.fr       */
+/*   Updated: 2018/06/21 11:23:00 by rhohls           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "filler.h"
+#include "../filler.h"
 int valid_move_static(t_fill *game, int rowin, int colin)
 {
 	//over map edge
