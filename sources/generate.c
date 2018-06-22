@@ -6,7 +6,7 @@
 /*   By: rhohls <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/18 14:33:00 by rhohls            #+#    #+#             */
-/*   Updated: 2018/06/19 14:55:52 by rhohls           ###   ########.fr       */
+/*   Updated: 2018/06/22 10:19:12 by rhohls           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,16 @@ void	get_piece(t_fill *game, char *line, int fd)
 
 	game->piece[i] = line;
 	i++;
-	while (i <= game->ROW(p_size) && get_next_line(fd, &line))
+	while (i <= (game->ROW(p_size) - 1) && get_next_line(fd, &line))
 	{
+//		ft_putstr_fd(line, 2);
 		game->piece[i] = line;
 		i++;
 	}
+	/*
+	ft_putstr_fd(game->piece[0], 2);
+	ft_putstr_fd("\n", 2);
+	ft_putstr_fd(game->piece[1], 2);
+	ft_putstr_fd("\n", 2);
+	*/
 }

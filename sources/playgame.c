@@ -6,7 +6,7 @@
 /*   By: rhohls <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/16 11:29:52 by rhohls            #+#    #+#             */
-/*   Updated: 2018/06/19 18:00:37 by rhohls           ###   ########.fr       */
+/*   Updated: 2018/06/22 14:48:19 by rhohls           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,27 +20,28 @@
 ** 3 is both
 */
 
-int	play_game(int fd)
+t_fill	*play_game(int fd)
 {
-	int		line_num;
-	char	*line;
+	int				line_num;
+	char			*line;
 	static t_fill	*game;
-	int		piece_row;
+	int				piece_row;
+	int				ret;
 
 	if (!game)
 	{
 		game = (t_fill *)malloc(sizeof(t_fill));
 		game->initial = 0;
 	}
-//	printf("starting\n");
-	int loopcount = 0;
-	int ret;
-	int fd2 = open("game2.txt", O_RDONLY);
-//	printf("gnl ret |%i| string |%s| \n", get_next_line(fd, &line), line);
+
+	int fd2;
+	fd2 = open("gamestate.txt", O_RDWR);
 	while ((ret = get_next_line(fd, &line)) == 1)
 	{
-		write( fd2, line, ft_strlen(line));
-//		printf("gnl ret |%i| string |%s| \n",ret,line);
+		write(fd2, line, strlen(line));
+		write(fd2, "\n", 1);
+
+//		fprintf(stderr, "gnl ret |%i| string |%s| \n",ret,line);
 //		printf("game address %p\n", game);
 //		printf("str res %i\n", ft_strncmp(line, "Plateau", 7));
 		if (line[0] == '$') //initialize player symbol
@@ -79,24 +80,21 @@ int	play_game(int fd)
 		{
 			//-----add piece trim-----return negative-----//
 			//wrap around is possible
+//			ft_putstr_fd("getting pi\n", 2);
 //			printf("5\n");
 			get_piece(game, line, fd);
-//			printf("got piece\n");
+//			ft_putstr_fd("got piece\n",2);
 		//	printstate(game);
 			decide(game);
-//			printf("decided\n");
+//			ft_putstr_fd("decided\n",2);
 			place_piece(game);
-			printstate(game);
+//			ft_putstr_fd("postplace\n", 2);
+			
+//			printstate(game, 2);
 		}
-	//	if (game->place[0] == -1)
-	//		return (-1);
-	//	else
-	//		return (1);
 	}
 	close(fd2);
-//	printf("realbad");
-	return (0);
+	return (game);
 }
-
 
 

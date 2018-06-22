@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   openread.c                                         :+:      :+:    :+:   */
+/*   main_test.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rhohls <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/19 06:53:37 by rhohls            #+#    #+#             */
-/*   Updated: 2018/06/22 15:15:24 by rhohls           ###   ########.fr       */
+/*   Created: 2018/06/22 13:16:07 by rhohls            #+#    #+#             */
+/*   Updated: 2018/06/22 14:23:12 by rhohls           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,30 @@
 
 int main()
 {
-	//infinite loop, exit condition
-	//add variable to struct for exit
-	while (1)
-        play_game(0);
+	int		buff = 80;
+	char	str[buff];
+	int		fd;
+	int		readret;
+	t_fill	*game_state;
+	
+	
+	if ((fd = open("game.txt", O_RDONLY)) < 2)
+	{
+		printf("failed opening file\n");
+		return (0);
+	}			
+    game_state = play_game(fd);
+
+	printf("                    TEST RESULTS\n");
+	printf(".-\"-.     .-\"-.     .-\"-.     .-\"-.     .-\"-.     .-\"-.\n");
+	printf("     \"-.-\"     \"-.-\"     \"-.-\"     \"-.-\"     \"-.-\"\n");
+	
+	int res;
+	res = valid_move(game_state, game_state->place);
+	printf("valid_move res %i\n", res);
+	
+	
+	
 	return (1);
 }
 
