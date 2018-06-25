@@ -6,7 +6,7 @@
 /*   By: rhohls <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/19 07:03:31 by rhohls            #+#    #+#             */
-/*   Updated: 2018/06/22 15:08:56 by rhohls           ###   ########.fr       */
+/*   Updated: 2018/06/25 12:38:55 by rhohls           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,10 @@ void decide(t_fill *game)
 		{
 			if (valid_move_static(game, row, col))
 			{
-				game->ROW(place) = row;
-				game->COL(place) = col;
+				game->ROW(place) = row - game->ROW(trimmed);
+				game->COL(place) = col - game->COL(trimmed);
+				game->ROW(trimmed) = 0;
+				game->COL(trimmed) = 0;
 				return ;
 			}
 			col++;
@@ -58,5 +60,6 @@ void decide(t_fill *game)
 	}
 	game->ROW(place) = 0;
 	game->COL(place) = 0;
+	game->exit = 1;
 }
 			

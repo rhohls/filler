@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   openread.c                                         :+:      :+:    :+:   */
+/*   breakloops.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rhohls <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/19 06:53:37 by rhohls            #+#    #+#             */
-/*   Updated: 2018/06/25 07:43:31 by rhohls           ###   ########.fr       */
+/*   Created: 2018/06/25 07:55:02 by rhohls            #+#    #+#             */
+/*   Updated: 2018/06/25 08:01:27 by rhohls           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <sys/types.h>
-#include <sys/uio.h>
-#include <unistd.h>
-#include <strings.h>
-#include <fcntl.h>
-#include "filler.h"
+#include <stdio.h>
 
 int main()
 {
-	t_fill	*game;
-
-	while (1)
+	int i = 0;
+	int j = 0;
+	int breaker = 1;
+	
+	while (i < 5 && breaker)
 	{
-        game = play_game(0);
-		if (game->exit)
-			break ;
+		j = 0;
+		while (j < 5 && breaker)
+		{
+			printf("i: %i j:%i\n", i, j);
+			if (j == 1 && i ==3)
+				breaker = 0;
+			j++;
+		}
+		i++;
 	}
-	return (1);
 }
-

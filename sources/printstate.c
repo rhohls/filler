@@ -6,7 +6,7 @@
 /*   By: rhohls <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/19 13:58:04 by rhohls            #+#    #+#             */
-/*   Updated: 2018/06/22 14:31:32 by rhohls           ###   ########.fr       */
+/*   Updated: 2018/06/25 12:28:51 by rhohls           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,9 @@ void printstate(t_fill *game,int fd)
 
 	dprintf(fd, "\nHeat map:\n");
 	dprintf(fd, "none for now\n");
+
+	dprintf(fd, "\nPlacement offset:\n");
+	dprintf(fd, "Row:%i Col:%i\n", game->ROW(trimmed), game->COL(trimmed));
 
 	dprintf(fd, "\nPlacement location:\n");
 	dprintf(fd, "Row:%i Col:%i\n", game->ROW(place), game->COL(place));

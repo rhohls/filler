@@ -6,7 +6,7 @@
 /*   By: rhohls <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/13 09:39:43 by rhohls            #+#    #+#             */
-/*   Updated: 2018/06/22 14:34:56 by rhohls           ###   ########.fr       */
+/*   Updated: 2018/06/25 11:50:15 by rhohls           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # define ROW(x) x[0]
 # define COL(x) x[1]
-# define OP_TOK(x) 
 
 #include <stdlib.h>
 #include "./includes/libft.h"
@@ -33,6 +32,8 @@ typedef struct		s_fill
 	int				**heat_map;
 	int				place[2];
 	int				initial;
+	int				trimmed[2];
+	int 			exit;
 }					t_fill;
 
 void    gen_heatmap(t_fill *game);
@@ -45,6 +46,9 @@ void 	decide(t_fill *game);
 int		valid_move_static(t_fill *game, int rowin, int colin);
 t_fill	*play_game(int fd);
 int		in_board(int row, int col, t_fill *game);
-void	 printstate(t_fill *game, int fd);
+void	printstate(t_fill *game, int fd);
+void	trim_piece(t_fill *game);
+void	trim_right(t_fill *game, int row, int col);
+void	trim_left(t_fill *game, int row, int col);
 #endif
 
