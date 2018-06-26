@@ -6,7 +6,7 @@
 /*   By: rhohls <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/14 08:26:35 by rhohls            #+#    #+#             */
-/*   Updated: 2018/06/19 08:13:57 by rhohls           ###   ########.fr       */
+/*   Updated: 2018/06/26 08:11:37 by rhohls           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 ** from top left of square add "heat units" in square shape
 */
 
-void apply_heat(int *start, int grd_size, int heat, t_fill *game)
+static void apply_heat(int *start, int grd_size, int heat, t_fill *game)
 {
 	int row;
 	int col;
@@ -33,6 +33,15 @@ void apply_heat(int *start, int grd_size, int heat, t_fill *game)
 		}
 		row ++;
 	}	
+}
+
+static void add_heat_static(int row, int col, t_fill *game, int mult)
+{
+	int pos[2];
+
+	pos[0] = row;
+	pos[1] = col;
+	add_heat(pos, game, mult);
 }
 
 void add_heat(int *pos, t_fill *game, int mult)
