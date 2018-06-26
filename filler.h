@@ -6,7 +6,7 @@
 /*   By: rhohls <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/13 09:39:43 by rhohls            #+#    #+#             */
-/*   Updated: 2018/06/25 11:50:15 by rhohls           ###   ########.fr       */
+/*   Updated: 2018/06/26 08:12:46 by rhohls           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void    gen_heatmap(t_fill *game);
 void    gen_map(t_fill *game);
 void    gen_piece(t_fill *game);
 void    get_piece(t_fill *game, char *line, int fd);
+
 int		valid_move(t_fill *game, int *pos);
 void    place_piece(t_fill *game);
 void 	decide(t_fill *game);
@@ -47,8 +48,13 @@ int		valid_move_static(t_fill *game, int rowin, int colin);
 t_fill	*play_game(int fd);
 int		in_board(int row, int col, t_fill *game);
 void	printstate(t_fill *game, int fd);
+
 void	trim_piece(t_fill *game);
 void	trim_right(t_fill *game, int row, int col);
 void	trim_left(t_fill *game, int row, int col);
+
+static void add_heat_static(int row, int col, t_fill *game, int mult)i;
+void add_heat(int *pos, t_fill *game, int mult);
+
 #endif
 
