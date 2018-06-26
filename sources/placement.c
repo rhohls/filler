@@ -6,7 +6,7 @@
 /*   By: rhohls <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/19 07:03:31 by rhohls            #+#    #+#             */
-/*   Updated: 2018/06/25 12:38:55 by rhohls           ###   ########.fr       */
+/*   Updated: 2018/06/26 11:51:27 by rhohls           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,26 +25,26 @@ void	place_piece(t_fill *game)
 	ft_putnbr_fd(COL(game->place), 2);
 	ft_putchar_fd('\n', 2);
 }
+
+//go diag in direction???? for start
+//go from bottom up for end
+
+
 /*
-void	place_piece(t_fill *game)
-{
-	printf("%i %i\n", ROW(game->place), COL(game->place));
-}
-*/
-/*
-** -1 for row and col if no valid move
+** 0 for row and col if no valid move and exit
+** goes fom bottom up (will auto fill) 
 */
 void decide(t_fill *game)
 {
 	int row;
 	int col;
 
-	row = 0;
+	row = game->ROW(m_size) - 0;
 
-	while (row < game->ROW(m_size))
+	while (row >= 0)
 	{
-		col = 0;
-		while (col < game->COL(m_size))
+		col = game->COL(m_size) - 0;
+		while (col >= 0)
 		{
 			if (valid_move_static(game, row, col))
 			{
@@ -54,9 +54,9 @@ void decide(t_fill *game)
 				game->COL(trimmed) = 0;
 				return ;
 			}
-			col++;
+			col--;
 		}
-		row++;
+		row--;
 	}
 	game->ROW(place) = 0;
 	game->COL(place) = 0;

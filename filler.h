@@ -6,7 +6,7 @@
 /*   By: rhohls <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/13 09:39:43 by rhohls            #+#    #+#             */
-/*   Updated: 2018/06/26 08:12:46 by rhohls           ###   ########.fr       */
+/*   Updated: 2018/06/26 11:27:46 by rhohls           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	trim_piece(t_fill *game);
 void	trim_right(t_fill *game, int row, int col);
 void	trim_left(t_fill *game, int row, int col);
 
-static void add_heat_static(int row, int col, t_fill *game, int mult)i;
+void add_heat_static(int row, int col, t_fill *game, int mult);
 void add_heat(int *pos, t_fill *game, int mult);
 
 #endif

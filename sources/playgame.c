@@ -6,19 +6,13 @@
 /*   By: rhohls <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/16 11:29:52 by rhohls            #+#    #+#             */
-/*   Updated: 2018/06/25 12:35:40 by rhohls           ###   ########.fr       */
+/*   Updated: 2018/06/26 10:56:40 by rhohls           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../filler.h"
 #include <fcntl.h>
 #include <unistd.h>
-/* 
-** 0 is none intial
-** 1 is map intial
-** 2 is heatmap
-** 3 is both
-*/
 
 t_fill	*play_game(int fd)
 {

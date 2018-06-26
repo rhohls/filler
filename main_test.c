@@ -6,7 +6,7 @@
 /*   By: rhohls <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/22 13:16:07 by rhohls            #+#    #+#             */
-/*   Updated: 2018/06/22 14:23:12 by rhohls           ###   ########.fr       */
+/*   Updated: 2018/06/26 12:00:05 by rhohls           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ int main()
 	printf("     \"-.-\"     \"-.-\"     \"-.-\"     \"-.-\"     \"-.-\"\n");
 	
 	int res;
-	res = valid_move(game_state, game_state->place);
+	//res = valid_move(game_state, game_state->place);
+	res = valid_move_static(game_state, 13, 15);
 	printf("valid_move res %i\n", res);
 	
 	
