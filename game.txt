@@ -1,21 +1,21 @@
 $$$ exec p1 : [./basic.filler]
 Plateau 15 17:
     01234567890123456
-000 XXXXXXXXXXXXXXXXX
-001 XXXXXXXXXXXXXXXXX
-002 XXXXXXXXXXXXXXXXX
-003 XXXXXXXXXXXXXXXXX
-004 ...........xxXXXX
-005 ...OOOOOOOOOOOXXX
-006 OOOOOOOOOOOOOXXXX
-007 OOOOOOOOOOOXXX...
-008 OOOOOOOOOOXXX....
-009 OOOOOOOOOOXXXXXXX
-010 OOOOOOOOOOOOOXX..
-011 OOOOOOOOOOOOXX...
-012 OOOOOOOOOOOXXXXXX
-013 OOOOOOOOOOOOOOOO.
+000 .................
+001 .................
+002 .................
+003 .................
+004 OOOoo............
+005 OO...............
+006 OOO...........X..
+007 .OO............XX
+008 .OO...........XXX
+009 ............XXXXX
+010 ..............X..
+011 .............XX..
+012 ..............X..
+013 .................
 014 .................
-Piece 2 2:
-**
-.*
+Piece 2 1:
+*
+*

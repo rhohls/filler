@@ -6,7 +6,7 @@
 /*   By: rhohls <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/16 11:29:52 by rhohls            #+#    #+#             */
-/*   Updated: 2018/06/26 10:56:40 by rhohls           ###   ########.fr       */
+/*   Updated: 2018/06/27 15:32:04 by rhohls           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ t_fill	*play_game(int fd)
 			if (game->initial < 1)
 			{
 				gen_map(game);
+				gen_heatmap(game);
 				game->initial++;
 			}
 			game->map[ft_atoi(line)] = (line + 4);
@@ -75,6 +76,7 @@ t_fill	*play_game(int fd)
 //			ft_putstr_fd("got piece\n",2);
 			trim_piece(game);
 //			printstate(game, 0);
+			edge_heat(game);
 			decide(game);
 //			ft_putstr_fd("decided\n",2);
 			place_piece(game);

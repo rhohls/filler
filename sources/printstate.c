@@ -6,7 +6,7 @@
 /*   By: rhohls <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/19 13:58:04 by rhohls            #+#    #+#             */
-/*   Updated: 2018/06/25 12:28:51 by rhohls           ###   ########.fr       */
+/*   Updated: 2018/06/27 15:24:26 by rhohls           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,18 @@ void printstate(t_fill *game,int fd)
 	
 	dprintf(fd, "\nPiece size:\n");
 	dprintf(fd, "Row:%i Col:%i\n", game->ROW(p_size), game->COL(p_size));
-
+	
+	i = 0;
+	int j;
 	dprintf(fd, "\nHeat map:\n");
-	dprintf(fd, "none for now\n");
+	while (i < game->ROW(m_size))
+	{
+		j = 0;
+		while (j < game->COL(m_size))
+    		printf("%d",game->heat_map[i][j++]);
+		printf("\n");
+		i++;
+	}
 
 	dprintf(fd, "\nPlacement offset:\n");
 	dprintf(fd, "Row:%i Col:%i\n", game->ROW(trimmed), game->COL(trimmed));

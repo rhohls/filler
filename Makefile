@@ -6,7 +6,7 @@
 #    By: rhohls <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/06/22 11:19:09 by rhohls            #+#    #+#              #
-#    Updated: 2018/06/22 12:51:28 by rhohls           ###   ########.fr        #
+#    Updated: 2018/06/27 15:37:42 by rhohls           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,7 @@ play: all
 	./fill.sh
 
 test: compile
-	gcc -o $(NAME) $(OBJF)*.o $(LIBFT) $(MAINT)
+	gcc -o $(NAME) -I./ $(OBJF)*.o $(LIBFT) $(MAINT)
 	./$(NAME)
 
 all: $(NAME)
