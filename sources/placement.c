@@ -6,7 +6,7 @@
 /*   By: rhohls <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/19 07:03:31 by rhohls            #+#    #+#             */
-/*   Updated: 2018/06/26 11:51:27 by rhohls           ###   ########.fr       */
+/*   Updated: 2018/06/28 09:06:18 by rhohls           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,23 +19,50 @@ void	place_piece(t_fill *game)
 	ft_putchar(' ');
 	ft_putnbr(COL(game->place));
 	ft_putchar('\n');
-
+/*
 	ft_putnbr_fd(ROW(game->place), 2);
 	ft_putchar_fd(' ', 2);
 	ft_putnbr_fd(COL(game->place), 2);
 	ft_putchar_fd('\n', 2);
+*/	
+	game->ROW(trimmed) = 0;
+	game->COL(trimmed) = 0;
 }
+/*
+** 0: heatmap val  1,2: row,col
+*/
+int highest_map(t_fill *game, int *vals)
+{
+	int row;
+	int col;
 
-//go diag in direction???? for start
-//go from bottom up for end
-
+	row = 0;
+	while (row < game->ROW(m_size))
+	{
+		col = 0;
+		while (col < game->COL(m_size))
+		{
+			if (game->heat_map[row][col] >= vals[0])
+			{
+				vals[0] = game->heat_map[row][col];
+				vals[1] = row;
+				vals[2] = col;
+			}
+			col++;
+		}
+		row++;
+	}
+//	printf("val: %i, row:%i col:%i\n", vals[0], vals[1], vals[2]);
+	return (vals[0]);
+}	
 
 /*
 ** 0 for row and col if no valid move and exit
 ** goes fom bottom up (will auto fill) 
 */
-void decide(t_fill *game)
+void place_basic(t_fill *game)
 {
+	printf("playing basic \n");
 	int row;
 	int col;
 
@@ -50,8 +77,6 @@ void decide(t_fill *game)
 			{
 				game->ROW(place) = row - game->ROW(trimmed);
 				game->COL(place) = col - game->COL(trimmed);
-				game->ROW(trimmed) = 0;
-				game->COL(trimmed) = 0;
 				return ;
 			}
 			col--;
@@ -62,4 +87,30 @@ void decide(t_fill *game)
 	game->COL(place) = 0;
 	game->exit = 1;
 }
-			
+
+void decide(t_fill *game)
+{
+	int vals[3];
+
+	while (highest_map(game, vals) > 0)
+	{
+		game->heat_map[vals[1]][vals[2]] = 0;
+		vals[0] = 0;
+		if (valid_move_static(game, vals[1], vals[2]))
+		{
+			game->ROW(place) = vals[1] - game->ROW(trimmed);
+			game->COL(place) = vals[2] - game->COL(trimmed);
+			return ;
+		}
+	}
+	place_basic(game);
+}
+
+
+
+
+
+
+
+
+

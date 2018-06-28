@@ -6,12 +6,13 @@
 /*   By: rhohls <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/19 13:58:04 by rhohls            #+#    #+#             */
-/*   Updated: 2018/06/27 15:24:26 by rhohls           ###   ########.fr       */
+/*   Updated: 2018/06/28 12:25:56 by rhohls           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../filler.h"
 #include <stdio.h>
+#include <unistd.h>
 
 void printstate(t_fill *game,int fd)
 {
@@ -45,8 +46,13 @@ void printstate(t_fill *game,int fd)
 	{
 		j = 0;
 		while (j < game->COL(m_size))
-    		printf("%d",game->heat_map[i][j++]);
-		printf("\n");
+		{
+    		dprintf(fd, "%d ",game->heat_map[i][j]);
+			if (game->heat_map[i][j] < 10)
+				dprintf(fd," ");
+			j++;
+		}	
+		dprintf(fd, "\n");
 		i++;
 	}
 
@@ -55,5 +61,8 @@ void printstate(t_fill *game,int fd)
 
 	dprintf(fd, "\nPlacement location:\n");
 	dprintf(fd, "Row:%i Col:%i\n", game->ROW(place), game->COL(place));
+
+	for(i=0;i<1000;i++)
+	{}
 }
 

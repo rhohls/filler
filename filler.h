@@ -6,7 +6,7 @@
 /*   By: rhohls <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/13 09:39:43 by rhohls            #+#    #+#             */
-/*   Updated: 2018/06/27 15:38:20 by rhohls           ###   ########.fr       */
+/*   Updated: 2018/06/28 07:42:34 by rhohls           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,6 @@ void add_heat_static(int row, int col, t_fill *game, int mult);
 void add_heat(int *pos, t_fill *game, int mult);
 
 void edge_heat(t_fill *game);
+void remove_heat(t_fill *game);
 #endif
 
