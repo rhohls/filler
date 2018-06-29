@@ -6,7 +6,7 @@
 /*   By: rhohls <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/13 09:39:43 by rhohls            #+#    #+#             */
-/*   Updated: 2018/06/28 07:42:34 by rhohls           ###   ########.fr       */
+/*   Updated: 2018/06/29 12:20:29 by rhohls           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 typedef struct		s_fill
 {
 	char			**map;
+	char            **old_map;
 	char			**piece;
 	char			sym;//my player piece
 	char			op_sym[2];
@@ -58,5 +59,8 @@ void add_heat(int *pos, t_fill *game, int mult);
 
 void edge_heat(t_fill *game);
 void remove_heat(t_fill *game);
+int op_location(t_fill *game);
+void    place_basic(t_fill *game);
+void    fill_up(t_fill *game);
 #endif
 

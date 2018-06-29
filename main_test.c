@@ -6,7 +6,7 @@
 /*   By: rhohls <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/22 13:16:07 by rhohls            #+#    #+#             */
-/*   Updated: 2018/06/28 11:56:13 by rhohls           ###   ########.fr       */
+/*   Updated: 2018/06/29 08:26:30 by rhohls           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int main()
 	printf("     \"-.-\"     \"-.-\"     \"-.-\"     \"-.-\"     \"-.-\"\n");
 
 	game_state = play_game(fd);
+	printstate(game_state, 0);
 
 	
 	printf("\n----------- CUSTOM TETS ---------\n\n");
@@ -48,7 +49,7 @@ int main()
 	*/
 	
 	add_heat_static(1, 15, game_state, 1);
-
+	place_basic(game_state);
 	
 	
 	

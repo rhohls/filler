@@ -6,7 +6,7 @@
 /*   By: rhohls <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/19 07:03:31 by rhohls            #+#    #+#             */
-/*   Updated: 2018/06/28 09:06:18 by rhohls           ###   ########.fr       */
+/*   Updated: 2018/06/29 08:08:50 by rhohls           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,21 +56,15 @@ int highest_map(t_fill *game, int *vals)
 	return (vals[0]);
 }	
 
-/*
-** 0 for row and col if no valid move and exit
-** goes fom bottom up (will auto fill) 
-*/
-void place_basic(t_fill *game)
+void	fill_up(t_fill *game)
 {
-	printf("playing basic \n");
 	int row;
 	int col;
 
-	row = game->ROW(m_size) - 0;
-
+	row = game->ROW(m_size);
 	while (row >= 0)
 	{
-		col = game->COL(m_size) - 0;
+		col = game->COL(m_size);
 		while (col >= 0)
 		{
 			if (valid_move_static(game, row, col))
@@ -87,6 +81,7 @@ void place_basic(t_fill *game)
 	game->COL(place) = 0;
 	game->exit = 1;
 }
+
 
 void decide(t_fill *game)
 {
@@ -107,7 +102,7 @@ void decide(t_fill *game)
 }
 
 
-
+// add very basic
 
 
 

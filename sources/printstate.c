@@ -6,7 +6,7 @@
 /*   By: rhohls <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/19 13:58:04 by rhohls            #+#    #+#             */
-/*   Updated: 2018/06/28 12:25:56 by rhohls           ###   ########.fr       */
+/*   Updated: 2018/06/29 08:58:08 by rhohls           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,23 @@ void printstate(t_fill *game,int fd)
 	dprintf(fd, "\nMap:\n");
 	while (i < game->ROW(m_size))
 		dprintf(fd, "%s\n", game->map[i++]);
+	
+	i = 0;
+	int j;
+	dprintf(fd, "\nHeat map:\n");
+	while (i < game->ROW(m_size))
+	{
+		j = 0;
+		while (j < game->COL(m_size))
+		{
+    		dprintf(fd, "%d ",game->heat_map[i][j]);
+			if (game->heat_map[i][j] < 10)
+				dprintf(fd," ");
+			j++;
+		}	
+		dprintf(fd, "\n");
+		i++;
+	}
 	
 	i = 0;
 	dprintf(fd, "\nPiece:\n");
@@ -39,22 +56,7 @@ void printstate(t_fill *game,int fd)
 	dprintf(fd, "\nPiece size:\n");
 	dprintf(fd, "Row:%i Col:%i\n", game->ROW(p_size), game->COL(p_size));
 	
-	i = 0;
-	int j;
-	dprintf(fd, "\nHeat map:\n");
-	while (i < game->ROW(m_size))
-	{
-		j = 0;
-		while (j < game->COL(m_size))
-		{
-    		dprintf(fd, "%d ",game->heat_map[i][j]);
-			if (game->heat_map[i][j] < 10)
-				dprintf(fd," ");
-			j++;
-		}	
-		dprintf(fd, "\n");
-		i++;
-	}
+
 
 	dprintf(fd, "\nPlacement offset:\n");
 	dprintf(fd, "Row:%i Col:%i\n", game->ROW(trimmed), game->COL(trimmed));
