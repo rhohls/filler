@@ -6,7 +6,7 @@
 /*   By: rhohls <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/19 07:03:31 by rhohls            #+#    #+#             */
-/*   Updated: 2018/07/02 09:44:11 by rhohls           ###   ########.fr       */
+/*   Updated: 2018/07/02 13:56:59 by rhohls           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,6 @@ void	place_piece(t_fill *game)
 	ft_putchar(' ');
 	ft_putnbr(COL(game->place));
 	ft_putchar('\n');
-/*
-	ft_putnbr_fd(ROW(game->place), 2);
-	ft_putchar_fd(' ', 2);
-	ft_putnbr_fd(COL(game->place), 2);
-	ft_putchar_fd('\n', 2);
-*/	
 	game->ROW(trimmed) = 0;
 	game->COL(trimmed) = 0;
 }
@@ -101,5 +95,9 @@ void decide(t_fill *game)
 	place_basic(game);
 }
 
-
+void place_trim(t_fill *game, int row, int col)
+{
+	game->ROW(place) = row - game->ROW(trimmed);
+	game->COL(place) = col - game->COL(trimmed);
+}
 

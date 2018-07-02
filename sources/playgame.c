@@ -6,7 +6,7 @@
 /*   By: rhohls <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/16 11:29:52 by rhohls            #+#    #+#             */
-/*   Updated: 2018/07/02 09:27:06 by rhohls           ###   ########.fr       */
+/*   Updated: 2018/07/02 14:21:09 by rhohls           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ t_fill	*play_game(int fd)
 			
 //			ft_putstr_fd("postplace\n", 2);
 			
-			printstate(game, 2);
+//			printstate(game, 2);
 			copy_game_map(game);
 			place_piece(game);
 

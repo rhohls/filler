@@ -6,7 +6,7 @@
 /*   By: rhohls <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/13 09:39:43 by rhohls            #+#    #+#             */
-/*   Updated: 2018/07/02 07:41:39 by rhohls           ###   ########.fr       */
+/*   Updated: 2018/07/02 14:18:12 by rhohls           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ typedef struct		s_fill
 	int 			exit;
 }					t_fill;
 
+void place_trim(t_fill *game, int row, int col);
+
 void    gen_heatmap(t_fill *game);
 void    gen_map(t_fill *game);
 void copy_game_map(t_fill *game);
@@ -63,5 +65,11 @@ void remove_heat(t_fill *game);
 int op_location(t_fill *game);
 void    place_basic(t_fill *game);
 void    fill_up(t_fill *game);
+
+int		right_up_complex(t_fill *game, int curr_row, int curr_col);
+int     left_up_complex(t_fill *game, int curr_row, int curr_col);
+int     left_down_complex(t_fill *game, int curr_row, int curr_col);
+int     right_down_complex(t_fill *game, int curr_row, int curr_col);
+
 #endif
 
