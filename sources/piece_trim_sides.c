@@ -6,7 +6,7 @@
 /*   By: rhohls <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/25 09:28:53 by rhohls            #+#    #+#             */
-/*   Updated: 2018/06/25 12:33:17 by rhohls           ###   ########.fr       */
+/*   Updated: 2018/07/02 14:50:33 by rhohls           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void rm_col_left(t_fill *game)
 	{
 		temp = game->piece[row];
 		game->piece[row] = ft_strdup(&(game->piece[row][1]));
-		free(temp);
+//		free(temp);
 		row++;
 	}
 }

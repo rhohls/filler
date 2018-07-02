@@ -6,7 +6,7 @@
 /*   By: rhohls <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/25 06:55:54 by rhohls            #+#    #+#             */
-/*   Updated: 2018/06/25 12:35:05 by rhohls           ###   ########.fr       */
+/*   Updated: 2018/07/02 14:51:11 by rhohls           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void rm_row_top(t_fill *game)
 	int row;
 
 	row = 0;
-	free(game->piece[0]);
+	//free(game->piece[0]);
 	while (row < game->ROW(p_size) - 1)
 	{
 		game->piece[row] = game->piece[row + 1];
@@ -56,7 +56,7 @@ static void trim_bottom(t_fill *game, int row, int col)
 				return ;
 			col--;
 		}
-		free(game->piece[row]);
+//		free(game->piece[row]);
 		game->ROW(p_size)--;
 		row--;
 	}
