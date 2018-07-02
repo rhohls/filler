@@ -1,7 +1,5 @@
-seed = 9895
-O: error on input
-./rhohls.filler: Segfault at 0
+seed = 8055
 X: error on input
-./f_res/players/hcao.filler won
+./rhohls.filler won
 Score:
-0AGAINST17
+14AGAINST13

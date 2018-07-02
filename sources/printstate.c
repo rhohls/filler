@@ -6,7 +6,7 @@
 /*   By: rhohls <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/19 13:58:04 by rhohls            #+#    #+#             */
-/*   Updated: 2018/06/29 08:58:08 by rhohls           ###   ########.fr       */
+/*   Updated: 2018/07/02 08:16:47 by rhohls           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,24 @@ void printstate(t_fill *game,int fd)
 	dprintf(fd, "\n----------PRINTING GAME STATE---------\n");
 	dprintf(fd, "\nMap:\n");
 	while (i < game->ROW(m_size))
-		dprintf(fd, "%s\n", game->map[i++]);
+	{
+		dprintf(fd, "%s\t%p\n", game->map[i],game->map[i]);
+		i++;
+	}
 	
+	dprintf(fd, "\nOld_Map:\n");
+	if (!game->map)
+		dprintf(fd, "None\n");
+	else
+	{
+		i = 0;
+		while (i < game->ROW(m_size))
+		{
+			dprintf(fd, "%s\t%p\n", game->map[i], game->map[i]);
+			i++;
+		}
+	}
+
 	i = 0;
 	int j;
 	dprintf(fd, "\nHeat map:\n");

@@ -6,7 +6,7 @@
 /*   By: rhohls <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/18 14:33:00 by rhohls            #+#    #+#             */
-/*   Updated: 2018/06/27 15:22:45 by rhohls           ###   ########.fr       */
+/*   Updated: 2018/07/02 09:14:07 by rhohls           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,25 +27,37 @@ void	gen_heatmap(t_fill *game)
 void	gen_map(t_fill *game)
 {	
 	game->map = (char **)malloc(sizeof(char *) * game->ROW(m_size));
+	game->old_map = (char **)malloc(sizeof(char *) * game->ROW(m_size));
+	int count = 0;
+	while (count < game->ROW(m_size))
+		game->old_map[count++] = ft_strnew(game->COL(m_size));
 }
 
-void	gen_piece(t_fill *game)
-{	
-	game->piece = (char **)malloc(sizeof(char *) * game->ROW(p_size));
-}
-
+	
 void	get_piece(t_fill *game, char *line, int fd)
 {
 	int	i;
 
 	i = 0;
-	gen_piece(game);
-
+	game->piece = (char **)malloc(sizeof(char *) * game->ROW(p_size));
 	game->piece[i] = line;
 	i++;
 	while (i <= (game->ROW(p_size) - 1) && get_next_line(fd, &line))
 	{
 		game->piece[i] = line;
 		i++;
+	}
+}
+
+void copy_game_map(t_fill *game)
+{
+	int row;
+	
+	row = 0;
+	while (row < game->ROW(m_size))
+	{
+		//dprintf(2,"oldmap %p  newmap %p\n",game->old_map[row],game->map[row] );
+		game->old_map[row] = game->map[row];
+		row++;
 	}
 }

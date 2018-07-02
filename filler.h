@@ -6,7 +6,7 @@
 /*   By: rhohls <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/13 09:39:43 by rhohls            #+#    #+#             */
-/*   Updated: 2018/06/29 12:20:29 by rhohls           ###   ########.fr       */
+/*   Updated: 2018/07/02 07:41:39 by rhohls           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ typedef struct		s_fill
 
 void    gen_heatmap(t_fill *game);
 void    gen_map(t_fill *game);
-void    gen_piece(t_fill *game);
+void copy_game_map(t_fill *game);
+
 void    get_piece(t_fill *game, char *line, int fd);
 
 int		valid_move(t_fill *game, int *pos);
