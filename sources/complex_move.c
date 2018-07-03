@@ -6,7 +6,7 @@
 /*   By: rhohls <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/02 12:45:56 by rhohls            #+#    #+#             */
-/*   Updated: 2018/07/02 14:18:37 by rhohls           ###   ########.fr       */
+/*   Updated: 2018/07/03 06:57:15 by rhohls           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 ** 2...o
 ** 3...o
 ** 4oooo
-** only check the 'o' 
+** only check the 'o'
 */
 
 int	right_up_complex(t_fill *game, int curr_row, int curr_col)

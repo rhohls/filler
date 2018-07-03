@@ -6,7 +6,7 @@
 /*   By: rhohls <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/28 14:44:41 by rhohls            #+#    #+#             */
-/*   Updated: 2018/07/02 14:51:13 by rhohls           ###   ########.fr       */
+/*   Updated: 2018/07/03 06:56:20 by rhohls           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,6 @@ void		place_basic(t_fill *game)
 	int quad;
 
 	quad = op_location(game);
-//	fprintf(stderr, "~~~---- %i %i %i -----~~~\n", quad, quad, quad);
 	if (quad == 1)
 		right_up(game);
 	else if (quad == 2)

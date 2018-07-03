@@ -6,13 +6,13 @@
 /*   By: rhohls <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/29 07:03:12 by rhohls            #+#    #+#             */
-/*   Updated: 2018/07/02 14:20:58 by rhohls           ###   ########.fr       */
+/*   Updated: 2018/07/03 07:06:42 by rhohls           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../filler.h"
 
-static int quadrant(t_fill *game, int row, int col)
+static int	quadrant(t_fill *game, int row, int col)
 {
 	if (col >= (game->COL(m_size) / 2) && row >= (game->ROW(m_size) / 2))
 		return (4);
@@ -25,11 +25,11 @@ static int quadrant(t_fill *game, int row, int col)
 	return (0);
 }
 
-int op_location(t_fill *game)
+int			op_location(t_fill *game)
 {
 	int row;
 	int col;
-	
+
 	row = 0;
 	while (row < game->ROW(m_size))
 	{

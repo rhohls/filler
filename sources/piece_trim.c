@@ -6,18 +6,17 @@
 /*   By: rhohls <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/25 06:55:54 by rhohls            #+#    #+#             */
-/*   Updated: 2018/07/02 14:51:11 by rhohls           ###   ########.fr       */
+/*   Updated: 2018/07/03 07:10:41 by rhohls           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../filler.h"
 
-static void rm_row_top(t_fill *game)
+static void	rm_row_top(t_fill *game)
 {
 	int row;
 
 	row = 0;
-	//free(game->piece[0]);
 	while (row < game->ROW(p_size) - 1)
 	{
 		game->piece[row] = game->piece[row + 1];
@@ -25,7 +24,7 @@ static void rm_row_top(t_fill *game)
 	}
 }
 
-static void trim_top(t_fill *game, int row, int col)
+static void	trim_top(t_fill *game, int row, int col)
 {
 	row = 0;
 	while (row < game->ROW(p_size))
@@ -44,10 +43,10 @@ static void trim_top(t_fill *game, int row, int col)
 	}
 }
 
-static void trim_bottom(t_fill *game, int row, int col)
+static void	trim_bottom(t_fill *game, int row, int col)
 {
 	row = game->ROW(p_size) - 1;
-	while (row >= 0) 
+	while (row >= 0)
 	{
 		col = game->COL(p_size) - 1;
 		while (col >= 0)
@@ -56,34 +55,19 @@ static void trim_bottom(t_fill *game, int row, int col)
 				return ;
 			col--;
 		}
-//		free(game->piece[row]);
 		game->ROW(p_size)--;
 		row--;
 	}
 }
 
-
-	
-void trim_piece(t_fill *game)
+void		trim_piece(t_fill *game)
 {
 	int		row;
 	int		col;
-	char	*r_temp;
 
 	trim_bottom(game, row, col);
 	trim_right(game, row, col);
-	
 	trim_top(game, row, col);
 	trim_left(game, row, col);
-		
 	return ;
 }
-
-
-
-
-
-
-
-
-

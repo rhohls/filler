@@ -6,7 +6,7 @@
 /*   By: rhohls <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/19 07:03:31 by rhohls            #+#    #+#             */
-/*   Updated: 2018/07/02 13:56:59 by rhohls           ###   ########.fr       */
+/*   Updated: 2018/07/03 07:14:27 by rhohls           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,12 @@ void	place_piece(t_fill *game)
 	game->ROW(trimmed) = 0;
 	game->COL(trimmed) = 0;
 }
+
 /*
 ** 0: heatmap val  1,2: row,col
 */
-int highest_map(t_fill *game, int *vals)
+
+int		highest_map(t_fill *game, int *vals)
 {
 	int row;
 	int col;
@@ -46,9 +48,8 @@ int highest_map(t_fill *game, int *vals)
 		}
 		row++;
 	}
-//	printf("val: %i, row:%i col:%i\n", vals[0], vals[1], vals[2]);
 	return (vals[0]);
-}	
+}
 
 void	fill_up(t_fill *game)
 {
@@ -76,8 +77,7 @@ void	fill_up(t_fill *game)
 	game->exit = 1;
 }
 
-
-void decide(t_fill *game)
+void	decide(t_fill *game)
 {
 	int vals[3];
 
@@ -95,9 +95,8 @@ void decide(t_fill *game)
 	place_basic(game);
 }
 
-void place_trim(t_fill *game, int row, int col)
+void	place_trim(t_fill *game, int row, int col)
 {
 	game->ROW(place) = row - game->ROW(trimmed);
 	game->COL(place) = col - game->COL(trimmed);
 }
-
