@@ -1,6 +1,4 @@
-seed = 3770
-O: error on input
-./rhohls.filler: Segfault at 172
+seed = 9902
 ./f_res/players/lcharvol.filler won
 Score:
-172AGAINST290
+251AGAINST388

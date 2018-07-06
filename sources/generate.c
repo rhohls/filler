@@ -6,7 +6,7 @@
 /*   By: rhohls <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/18 14:33:00 by rhohls            #+#    #+#             */
-/*   Updated: 2018/07/03 06:59:52 by rhohls           ###   ########.fr       */
+/*   Updated: 2018/07/05 15:45:30 by rhohls           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void	get_piece(t_fill *game, char *line, int fd)
 		game->piece[i] = line;
 		i++;
 	}
+	trim_piece(game);
 }
 
 void	copy_game_map(t_fill *game)

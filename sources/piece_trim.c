@@ -6,7 +6,7 @@
 /*   By: rhohls <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/25 06:55:54 by rhohls            #+#    #+#             */
-/*   Updated: 2018/07/03 07:10:41 by rhohls           ###   ########.fr       */
+/*   Updated: 2018/07/05 15:47:34 by rhohls           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,11 @@ static void	rm_row_top(t_fill *game)
 
 static void	trim_top(t_fill *game, int row, int col)
 {
+	int max_row;
+
+	max_row = game->ROW(p_size);
 	row = 0;
-	while (row < game->ROW(p_size))
+	while (row < max_row)
 	{
 		col = 0;
 		while (col < game->COL(p_size))

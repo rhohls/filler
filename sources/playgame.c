@@ -6,7 +6,7 @@
 /*   By: rhohls <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/16 11:29:52 by rhohls            #+#    #+#             */
-/*   Updated: 2018/07/02 14:21:09 by rhohls           ###   ########.fr       */
+/*   Updated: 2018/07/05 15:45:36 by rhohls           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ t_fill	*play_game(int fd)
 	//		ft_putstr_fd("getting pi\n", 2);
 			get_piece(game, line, fd);
 //			ft_putstr_fd("got piece\n",2);
-			trim_piece(game);
+//			trim_piece(game);
 //			printstate(game, 0);
 			edge_heat(game);
 			decide(game);
