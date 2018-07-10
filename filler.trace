@@ -1,4 +1,5 @@
-seed = 9902
-./f_res/players/lcharvol.filler won
+seed = 1825
+./f_res/players/pee.filler: Bus error at 0
+./rhohls.filler won
 Score:
-251AGAINST388
+343AGAINST0

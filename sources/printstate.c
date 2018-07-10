@@ -71,14 +71,12 @@ void printstate(t_fill *game,int fd)
 	
 	dprintf(fd, "\nPiece size:\n");
 	dprintf(fd, "Row:%i Col:%i\n", game->ROW(p_size), game->COL(p_size));
-	
-
 
 	dprintf(fd, "\nPlacement offset:\n");
 	dprintf(fd, "Row:%i Col:%i\n", game->ROW(trimmed), game->COL(trimmed));
 
 	dprintf(fd, "\nPlacement location:\n");
-	dprintf(fd, "Row:%i Col:%i\n", game->ROW(place), game->COL(place));
+	dprintf(fd, "Row:%i Col:%i\n", game->ROW(place) - game->ROW(trimmed), game->COL(place) - game->COL(trimmed));
 
 	for(i=0;i<1000;i++)
 	{}

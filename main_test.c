@@ -6,7 +6,7 @@
 /*   By: rhohls <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/22 13:16:07 by rhohls            #+#    #+#             */
-/*   Updated: 2018/06/29 08:26:30 by rhohls           ###   ########.fr       */
+/*   Updated: 2018/07/10 12:03:12 by rhohls           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,17 +42,16 @@ int main()
 	
 	printf("\n----------- CUSTOM TETS ---------\n\n");
 	int res;
-	/*
-	res = valid_move(game_state, game_state->place);
-//	res = valid_move_static(game_state, 13, 15);
+	
+//	res = valid_move(game_state, game_state->place);
+	res = valid_move_static(game_state, 4, 15);
 	printf("valid_move res %i\n", res);
-	*/
+	
 	
 	add_heat_static(1, 15, game_state, 1);
 	place_basic(game_state);
 	
-	
-	
+
 	return (1);
 }
 

@@ -37,11 +37,14 @@ typedef struct		s_fill
 	int 			exit;
 }					t_fill;
 
-void place_trim(t_fill *game, int row, int col);
+void	adj_place_vals(t_fill *game, int row, int col);
 
 void    gen_heatmap(t_fill *game);
 void    gen_map(t_fill *game);
-void copy_game_map(t_fill *game);
+void	copy_game_map(t_fill *game);
+
+int		op_quadrant(t_fill *game);
+int			*op_location(t_fill *game);
 
 void    get_piece(t_fill *game, char *line, int fd);
 
@@ -57,12 +60,11 @@ void	trim_piece(t_fill *game);
 void	trim_right(t_fill *game, int row, int col);
 void	trim_left(t_fill *game, int row, int col);
 
-void add_heat_static(int row, int col, t_fill *game, int mult);
-void add_heat(int *pos, t_fill *game, int mult);
+void	add_heat_static(int row, int col, t_fill *game, int mult);
+void	add_heat(int *pos, t_fill *game, int mult);
 
-void edge_heat(t_fill *game);
-void remove_heat(t_fill *game);
-int op_location(t_fill *game);
+void	edge_heat(t_fill *game);
+void	remove_heat(t_fill *game);
 void    place_basic(t_fill *game);
 void    fill_up(t_fill *game);
 

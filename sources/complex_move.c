@@ -19,6 +19,8 @@
 ** 3...o
 ** 4oooo
 ** only check the 'o'
+** 
+** Place trim reasigns the place piece with trimmed vals
 */
 
 int	right_up_complex(t_fill *game, int curr_row, int curr_col)
@@ -31,7 +33,7 @@ int	right_up_complex(t_fill *game, int curr_row, int curr_col)
 	{
 		if (valid_move_static(game, curr_row, col))
 		{
-			place_trim(game, curr_row, col);
+			adj_place_vals(game, curr_row, col);
 			return (1);
 		}
 		col--;
@@ -41,7 +43,7 @@ int	right_up_complex(t_fill *game, int curr_row, int curr_col)
 	{
 		if (valid_move_static(game, row, curr_col))
 		{
-			place_trim(game, row, curr_col);
+			adj_place_vals(game, row, curr_col);
 			return (1);
 		}
 		row++;
@@ -59,7 +61,7 @@ int	left_up_complex(t_fill *game, int curr_row, int curr_col)
 	{
 		if (valid_move_static(game, curr_row, col))
 		{
-			place_trim(game, curr_row, col);
+			adj_place_vals(game, curr_row, col);
 			return (1);
 		}
 		col++;
@@ -69,7 +71,7 @@ int	left_up_complex(t_fill *game, int curr_row, int curr_col)
 	{
 		if (valid_move_static(game, row, curr_col))
 		{
-			place_trim(game, row, curr_col);
+			adj_place_vals(game, row, curr_col);
 			return (1);
 		}
 		row++;
@@ -87,7 +89,7 @@ int	left_down_complex(t_fill *game, int curr_row, int curr_col)
 	{
 		if (valid_move_static(game, curr_row, col))
 		{
-			place_trim(game, curr_row, col);
+			adj_place_vals(game, curr_row, col);
 			return (1);
 		}
 		col++;
@@ -97,7 +99,7 @@ int	left_down_complex(t_fill *game, int curr_row, int curr_col)
 	{
 		if (valid_move_static(game, row, curr_col))
 		{
-			place_trim(game, row, curr_col);
+			adj_place_vals(game, row, curr_col);
 			return (1);
 		}
 		row--;
@@ -115,7 +117,7 @@ int	right_down_complex(t_fill *game, int curr_row, int curr_col)
 	{
 		if (valid_move_static(game, curr_row, col))
 		{
-			place_trim(game, curr_row, col);
+			adj_place_vals(game, curr_row, col);
 			return (1);
 		}
 		col--;
@@ -125,10 +127,11 @@ int	right_down_complex(t_fill *game, int curr_row, int curr_col)
 	{
 		if (valid_move_static(game, row, curr_col))
 		{
-			place_trim(game, row, curr_col);
+			adj_place_vals(game, row, curr_col);
 			return (1);
 		}
 		row--;
 	}
+	//dprintf(2,"reaaaaaaaly bad \n");
 	return (0);
 }

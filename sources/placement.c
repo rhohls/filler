@@ -12,18 +12,25 @@
 
 #include "../filler.h"
 
+static void	place_trim(t_fill *game)
+{
+	game->ROW(place) += game->ROW(trimmed);
+	game->COL(place) += game->COL(trimmed);
+}
+
 void	place_piece(t_fill *game)
 {
-	ft_putnbr(ROW(game->place));
+	//place_trim(game);
+	ft_putnbr(ROW(game->place) - game->ROW(trimmed));
 	ft_putchar(' ');
-	ft_putnbr(COL(game->place));
+	ft_putnbr(COL(game->place) - game->COL(trimmed));
 	ft_putchar('\n');
 	game->ROW(trimmed) = 0;
 	game->COL(trimmed) = 0;
 }
 
-void	place_trim(t_fill *game, int row, int col)
+void	adj_place_vals(t_fill *game, int row, int col)
 {
-	game->ROW(place) = row - game->ROW(trimmed);
-	game->COL(place) = col - game->COL(trimmed);
+	game->ROW(place) = row;
+	game->COL(place) = col;
 }

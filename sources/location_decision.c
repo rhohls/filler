@@ -67,10 +67,11 @@ void	fill_up(t_fill *game)
 		col = game->COL(m_size);
 		while (col >= 0)
 		{
+//			dprintf(2, "move result from row %i, col %i   result: %i", row, col, valid_move_static(game, row, col));
 			if (valid_move_static(game, row, col))
 			{
-				game->ROW(place) = row - game->ROW(trimmed);
-				game->COL(place) = col - game->COL(trimmed);
+				game->ROW(place) = row;// - game->ROW(trimmed);
+				game->COL(place) = col;// - game->COL(trimmed);
 				return ;
 			}
 			col--;
@@ -90,10 +91,11 @@ void	decide(t_fill *game)
 	{
 		game->heat_map[ht_mp_prop[1]][ht_mp_prop[2]] = 0;
 		ht_mp_prop[0] = 0;
+	//	dprintf(2,"##checking valid move from heat map for row:%i col:%i\n", ht_mp_prop[1], ht_mp_prop[2]);
 		if (valid_move_static(game, ht_mp_prop[1], ht_mp_prop[2]))
 		{
-			game->ROW(place) = ht_mp_prop[1] - game->ROW(trimmed);
-			game->COL(place) = ht_mp_prop[2] - game->COL(trimmed);
+			game->ROW(place) = ht_mp_prop[1];
+			game->COL(place) = ht_mp_prop[2];
 			return ;
 		}
 	}

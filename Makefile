@@ -6,7 +6,7 @@
 #    By: rhohls <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/06/22 11:19:09 by rhohls            #+#    #+#              #
-#    Updated: 2018/06/28 07:06:13 by rhohls           ###   ########.fr        #
+#    Updated: 2018/07/09 07:36:32 by rhohls           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ FILES = *.c
 OBJS = $(FILES: .c=.o)
 
 $(NAME): compile
+	make -C libft
 	gcc -o $(NAME) $(OBJF)*.o $(LIBFT) $(MAIN)
 	#$(OBJF)$(OBJS)
 

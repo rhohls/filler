@@ -25,10 +25,12 @@ static int	quadrant(t_fill *game, int row, int col)
 	return (0);
 }
 
-int			op_location(t_fill *game)
+int			*op_location(t_fill *game)
 {
+	int ret[2];
 	int row;
 	int col;
+	int *ptr;
 
 	row = 0;
 	while (row < game->ROW(m_size))
@@ -39,11 +41,24 @@ int			op_location(t_fill *game)
 			if ((game->old_map) && (game->map[row][col] == game->op_sym[0]) &&
 					(game->map[row][col] != game->old_map[row][col]))
 			{
-				return (quadrant(game, row, col));
+				ret[0] = row;
+				ret[1] = col;
+				return (ptr = ret);
 			}
 			col++;
 		}
 		row++;
 	}
-	return (-1);
+	return (NULL);
+}
+
+int			op_quadrant(t_fill *game)
+{
+	int *pos;
+
+	pos = op_location(game);
+	if (pos)
+		return (quadrant(game, pos[0],pos[1]));
+	else
+		return (-1);
 }

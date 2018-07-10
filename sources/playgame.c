@@ -78,12 +78,8 @@ t_fill	*play_game(int fd)
 //			trim_piece(game);
 //			printstate(game, 0);
 			edge_heat(game);
-			decide(game);
-//			ft_putstr_fd("decided\n",2);
-			
-//			ft_putstr_fd("postplace\n", 2);
-			
-//			printstate(game, 2);
+			decide(game);		
+		//	printstate(game, 2);
 			copy_game_map(game);
 			place_piece(game);
 

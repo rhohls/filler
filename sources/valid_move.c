@@ -18,11 +18,15 @@ static int	valid_check(t_fill *game, int row, int col, int *pos)
 
 	valid = 2;
 	row = 0;
+	//dprintf(2, "new piece\n");
 	while (row < game->ROW(p_size))
 	{
 		col = 0;
 		while (col < game->COL(p_size))
 		{
+			//dprintf(2,"piece at %i %i: %c \n", row, col,game->piece[row][col]);
+			//dprintf(2, "comparing against board row: %i col %i with piece %c \n",ROW(pos) + row, COL(pos) + col, game->map[ROW(pos) + row][COL(pos) + col]);
+
 			if ((game->map[ROW(pos) + row][COL(pos) + col] == game->op_sym[0]
 				&& game->piece[row][col] == '*') ||
 				(game->map[ROW(pos) + row][COL(pos) + col] == game->op_sym[1]
@@ -31,6 +35,7 @@ static int	valid_check(t_fill *game, int row, int col, int *pos)
 			if ((game->map[ROW(pos) + row][COL(pos) + col] == game->sym) &&
 				(game->piece[row][col] == '*'))
 				valid--;
+			//printf("valid:%i\n", valid);
 			if (valid < 1)
 				return (0);
 			col++;
