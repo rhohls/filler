@@ -70,17 +70,19 @@ t_fill	*play_game(int fd)
 		}
 		else if (line[0] == '*' || line[0] == '.') //get actual piece
 		{
-			//wrap around is possible
 
 	//		ft_putstr_fd("getting pi\n", 2);
 			get_piece(game, line, fd);
-//			ft_putstr_fd("got piece\n",2);
-//			trim_piece(game);
+	//		ft_putstr_fd("got piece\n",2);
 //			printstate(game, 0);
 			edge_heat(game);
+//			ft_putstr_fd("added heat\n",2);
 			decide(game);		
 		//	printstate(game, 2);
+//			ft_putstr_fd("decided\n",2);
 			copy_game_map(game);
+	//		ft_putstr_fd("copying game\n",2);
+			reset_heat(game);
 			place_piece(game);
 
 		}

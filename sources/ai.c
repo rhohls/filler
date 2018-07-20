@@ -12,7 +12,25 @@
 
 #include "../filler.h"
 
-static int	partners(t_fill *game, int row, int col)
+static int	own_piece(t_fill *game, int row, int col)
+{
+	int amount;
+
+	amount = 0;
+	if (game->map[row][col + 1] == game->sym)
+		amount++;
+	if (game->map[row][col - 1] == game->sym)
+		amount++;
+	if (game->map[row + 1][col] == game->sym)
+		amount++;
+	if (game->map[row - 1][col] == game->sym)
+		amount++;
+	if (amount >= 4)
+		return (4);
+	return (amount);
+}
+
+static int	opp_piece(t_fill *game, int row, int col)
 {
 	int amount;
 
@@ -29,7 +47,9 @@ static int	partners(t_fill *game, int row, int col)
 	if (game->map[row - 1][col] == game->op_sym[0] ||
 			game->map[row - 1][col] == game->op_sym[1])
 		amount++;
-	if (amount == 4)
+	if (amount > 0)
+		amount += own_piece(game, row, col);
+	if (amount >= 4)
 		return (0);
 	return (amount);
 }
@@ -45,7 +65,7 @@ void		edge_heat(t_fill *game)
 		col = 1;
 		while (col < game->COL(m_size) - 1)
 		{
-			if (partners(game, row, col) > 0)
+			if (opp_piece(game, row, col) > 0)
 				add_heat_static(row, col, game, 1);
 			col++;
 		}

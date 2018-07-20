@@ -62,6 +62,7 @@ void	trim_left(t_fill *game, int row, int col);
 
 void	add_heat_static(int row, int col, t_fill *game, int mult);
 void	add_heat(int *pos, t_fill *game, int mult);
+void	reset_heat(t_fill *game);
 
 void	edge_heat(t_fill *game);
 void	remove_heat(t_fill *game);

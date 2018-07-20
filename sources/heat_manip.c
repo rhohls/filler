@@ -89,3 +89,21 @@ void		remove_heat(t_fill *game)
 		row++;
 	}
 }
+
+void		reset_heat(t_fill *game)
+{
+	int row;
+	int col;
+
+	row = 0;
+	while (row < game->ROW(m_size))
+	{
+		col = 0;
+		while (col < game->COL(m_size))
+		{
+			game->heat_map[row][col] = 0;
+			col++;
+		}
+		row++;
+	}
+}

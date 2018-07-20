@@ -132,6 +132,5 @@ int	right_down_complex(t_fill *game, int curr_row, int curr_col)
 		}
 		row--;
 	}
-	//dprintf(2,"reaaaaaaaly bad \n");
 	return (0);
 }
