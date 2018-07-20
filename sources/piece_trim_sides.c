@@ -16,7 +16,6 @@
 static void	rm_col_right(t_fill *game, int col_rm)
 {
 	int row;
-	int col;
 
 	row = 0;
 	while (row < game->ROW(p_size))

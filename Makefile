@@ -11,38 +11,66 @@
 # **************************************************************************** #
 
 NAME = rhohls.filler
-SRCS = ./sources/
-OBJF = ./objects/
-CCF = -Wall -Werror -Wextra
-LIBFT = ./libft/libft.a
 
+# Path
+SRC_PATH = ./sources/
+OBJ_PATH = ./objects/
+INC_PATH = ./includes/
+LIB_PATH = ./libft/
+OTHER_PLAYERS = ./resources/players/
+
+# Files
+SRC_FILE =	ai.c			\
+			basic_moves.c	\
+			complex_move.c	\
+			generate.c		\
+			heat_manip.c	\
+			in_board.c		\
+			location_decision.c	\
+			opp_location.c	\
+			piece_trim.c	\
+			piece_trim_sides.c	\
+			placement.c		\
+			playgame.c		\
+			printstate.c	\
+			valid_move.c	\
+
+OBJ_FILE = $(SRC_FILE:%.c=%.o)
+
+SRC = $(addprefix $(SRC_PATH), $(SRC_FILE))
+OBJ = $(addprefix $(OBJ_PATH), $(OBJ_FILE))
+
+#Additional
 MAIN ?= main.c
 MAINT ?= main_test.c
 
-FILES = *.c
-OBJS = $(FILES: .c=.o)
+#Compile
+CCFLAGS = -Wall -Werror -Wextra
+CC = gcc $(CCFLAGS)
 
-$(NAME): compile
-	make -C libft
-	gcc -o $(NAME) $(OBJF)*.o $(LIBFT) $(MAIN)
-	#$(OBJF)$(OBJS)
+LIBF = $(LIB_PATH)libft.a
 
-compile: $(OBJ)
-	gcc -c $(SRCS)$(FILES)
-#	@mv $(SRCS)$(OBJS) $(OBJF)
-	mv *.o $(OBJF)
+#Make Commands
+all: $(NAME)
+
+$(NAME): $(OBJ)
+	@make -C $(LIB_PATH)
+	@$(CC) -o $@ $(LIBF) $(OBJ) $(MAIN)
+	cp $@ $(OTHER_PLAYERS)
+
+$(OBJ_PATH)%.o: $(SRC_PATH)%.c
+	@$(CC) -I$(INC_PATH) -o $@ -c $<
 
 play: all
 	./fill.sh
 
 test: compile
-	gcc -o $(NAME) $(OBJF)*.o $(LIBFT) $(MAINT)
+	@make -C $(LIB_PATH)
+	@$(CC) -o $@ $(LIBF) $(OBJ) $(MAIN)
 	./$(NAME)
 
-all: $(NAME)
-
 clean:
-	/bin/rm -f $(OBJF)*.o
+	@/bin/rm -f $(OBJ)
 
 fclean: clean
 	/bin/rm -f $(NAME)

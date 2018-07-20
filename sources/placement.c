@@ -11,13 +11,13 @@
 /* ************************************************************************** */
 
 #include "../filler.h"
-
+/*
 static void	place_trim(t_fill *game)
 {
 	game->ROW(place) += game->ROW(trimmed);
 	game->COL(place) += game->COL(trimmed);
 }
-
+*/
 void	place_piece(t_fill *game)
 {
 	//place_trim(game);

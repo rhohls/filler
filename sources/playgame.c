@@ -16,10 +16,10 @@
 
 t_fill	*play_game(int fd)
 {
-	int				line_num;
+//	int				line_num;
 	char			*line;
 	static t_fill	*game;
-	int				piece_row;
+//	int				piece_row;
 	int				ret;
 
 	if (!game)
