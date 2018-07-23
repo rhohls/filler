@@ -53,7 +53,7 @@ int		valid_move(t_fill *game, int *pos);
 void    place_piece(t_fill *game);
 void 	decide(t_fill *game);
 int		valid_move_static(t_fill *game, int rowin, int colin);
-t_fill	*play_game(int fd);
+t_fill	*play_game(int fd, t_fill *game);
 int		in_board(int row, int col, t_fill *game);
 void	printstate(t_fill *game, int fd);
 
@@ -64,6 +64,8 @@ void	trim_left(t_fill *game, int row, int col);
 void	add_heat_static(int row, int col, t_fill *game, int mult);
 void	add_heat(int *pos, t_fill *game, int mult);
 void	reset_heat(t_fill *game);
+
+void	init_maps(t_fill *game);
 
 void	edge_heat(t_fill *game);
 void	remove_heat(t_fill *game);

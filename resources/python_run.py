@@ -38,7 +38,8 @@ def shell_exe(player1, player2, map):
         print ("!!! There was an error with", player1, "playing", player2, "!!!")
         print(lines[2], end='')
         print("~~~~")
-
+     #   A = input("WE HAVE AN ERROR HERE")
+     #   print(A)
 
     scoreline = lines[-1]
     scoreline = scoreline.rstrip()
@@ -51,26 +52,26 @@ def shell_exe(player1, player2, map):
 players = ["abanlin", "carli" , "champely", "grati", "hcao", "superjeannot", ]
 #players = ["carli"]
 player2 = "rhohls"
-maps = ["map00", "map01"]#, "map02"]
+maps = ["map00", "map01", "map02"]
 #maps = ["map02"]
 #maps = ["map00"]
-replay = 1
+replay = 5
 
 def print_result(player1, player2, result):
     if player2 == "rhohls":
         if nums[0] > nums[1]:
-            print(color.red, player1, "got: ", result[0], color.end)
+            print(color.red + player1, "got: ", result[0], color.end)
             print(player2, "got: ", result[1])
         else:
             print(player1, "got: ", result[0])
-            print(color.green, player2, "got: ", result[1], color.end)
+            print(color.green + player2, "got: ", result[1], color.end)
     else:
         if nums[0] > nums[1]:
-            print(color.green, player1, "got: ", result[0], color.end)
+            print(color.green + player1, "got: ", result[0], color.end)
             print(player2, "got: ", result[1])
         else:
             print(player1, "got: ", result[0])
-            print(color.red, player2, "got: ", result[1], color.end)
+            print(color.red + player2, "got: ", result[1], color.end)
     print("")
 
 """playing the game:"""

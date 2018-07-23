@@ -12,6 +12,13 @@
 
 #include "../filler.h"
 
+void init_maps(t_fill *game)
+{
+	gen_map(game);
+	gen_heatmap(game);
+	game->initial++;
+	reset_heat(game);
+}
 void	gen_heatmap(t_fill *game)
 {
 	int count;

@@ -19,11 +19,26 @@
 
 int main()
 {
-	t_fill	*game;
+	static t_fill	*game;
+	char			*line;
+	
+	game = (t_fill *)malloc(sizeof(t_fill));
+	game->initial = 0;
+	game->exit = 0;
+	game->top = 1;
+	line = NULL;
 
+	if (get_next_line(0, &line) != 1)
+		return (0);
+	if (line[0] == '$') //initialize player symbol
+	{
+		game->sym = (line[10] == '1' ? 'O' : 'X');
+		game->op_sym[0] = (line[10] == '2' ? 'O' : 'X');
+		game->op_sym[1] = ft_tolower(game->op_sym[0]);
+	}
 	while (1)
 	{
-        game = play_game(0);
+        game = play_game(0, game);
 		if (game->exit)
 			break ;
 	}

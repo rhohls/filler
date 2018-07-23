@@ -14,38 +14,32 @@
 #include <fcntl.h>
 #include <unistd.h>
 
-t_fill	*play_game(int fd)
+void	mini_playgame(t_fill *game, char *line, int fd)
 {
-//	int				line_num;
+	//	ft_putstr_fd("getting pi\n", 2);
+		get_piece(game, line, fd);
+	//	ft_putstr_fd("adding heat\n",2);
+	//	printstate(game, 0);
+		edge_heat(game);
+	//	ft_putstr_fd("deciding\n",2);
+		decide(game);		
+	//	printstate(game, 2);
+	//	ft_putstr_fd("copying game\n",2);
+		copy_game_map(game);
+	//	ft_putstr_fd("reseting heat\n",2);
+		reset_heat(game);
+	//	ft_putstr_fd("placeing piece\n",2);
+		place_piece(game);
+}
+
+t_fill	*play_game(int fd, t_fill *game)
+{
 	char			*line;
-	static t_fill	*game;
-//	int				piece_row;
 	int				ret;
 
-	if (!game)
-	{
-		game = (t_fill *)malloc(sizeof(t_fill));
-		game->initial = 0;
-		game->exit = 0;
-		game->top = 1;
-	}
-
-	int fd2;
-	fd2 = open("gamestate.txt", O_RDWR);
 	while ((ret = get_next_line(fd, &line)) == 1)
 	{
-		write(fd2, line, strlen(line));
-		write(fd2, "\n", 1);
-
-		if (line[0] == '$') //initialize player symbol
-		{
-//			printf("1\n");
-			game->sym = (line[10] == '1' ? 'O' : 'X');
-			game->op_sym[0] = (line[10] == '2' ? 'O' : 'X');
-			game->op_sym[1] = ft_tolower(game->op_sym[0]);
-
-		}
-		else if (ft_strncmp(line, "Plateau", 7) == 0) //get board size
+		if (ft_strncmp(line, "Plateau", 7) == 0) //get board size
 		{
 //			printf("2\n");
 			game->ROW(m_size) = ft_atoi(&line[8]);
@@ -61,35 +55,15 @@ t_fill	*play_game(int fd)
 		{
 //			printf("4\n");
 			if (game->initial < 1)
-			{
-				gen_map(game);
-				gen_heatmap(game);
-				game->initial++;
-//				game->old_map = // initialize odl map to sezo
-			}
+				init_maps(game);
 			game->map[ft_atoi(line)] = (line + 4);
 		}
 		else if (line[0] == '*' || line[0] == '.') //get actual piece
 		{
-
-		//	ft_putstr_fd("getting pi\n", 2);
-			get_piece(game, line, fd);
-		//	ft_putstr_fd("adding heat\n",2);
-		//	printstate(game, 0);
-			edge_heat(game);
-		//	ft_putstr_fd("deciding\n",2);
-			decide(game);		
-		//	printstate(game, 2);
-		//	ft_putstr_fd("copying game\n",2);
-			copy_game_map(game);
-		//	ft_putstr_fd("reseting heat\n",2);
-			reset_heat(game);
-		//	ft_putstr_fd("placeing piece\n",2);
-			place_piece(game);
+			mini_playgame(game, line, fd);
 
 		}
 	}
-	close(fd2);
 	return (game);
 }
 
