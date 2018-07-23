@@ -28,7 +28,7 @@ static void	right_up(t_fill *game)
 	while (row < game->ROW(m_size) || col > 0)
 	{
 		row = (row <= game->ROW(m_size) ? row : game->ROW(m_size));
-		col = (col <= game->COL(m_size) ? col : 0);
+		col = (col >= 0 ? col : 0);
 		if (right_up_complex(game, row, col))
 			return ;
 		row++;
@@ -67,15 +67,17 @@ static void	left_down(t_fill *game)
 
 	row = game->ROW(m_size);
 	col = 0;
+	//dprintf(2, "now in left down\n");
 	while (row > 0 || col < game->COL(m_size))
 	{
-		row = (row <= game->ROW(m_size) ? row : 0);
+		row = (row >= 0 ? row : 0);
 		col = (col <= game->COL(m_size) ? col : game->COL(m_size));
 		if (left_down_complex(game, row, col))
 			return ;
 		row--;
 		col++;
 	}
+//	dprintf(2, "now exiting\n");
 	game->ROW(place) = 0;
 	game->COL(place) = 0;
 	game->exit = 1;
@@ -109,6 +111,7 @@ void		place_basic(t_fill *game)
 {
 	int quad;
 
+//	dprintf(2, "getting quad\n");
 	quad = op_quadrant(game);
 //	dprintf(2, "--- quad == %i ----\n", quad);
 	if (quad == 1)
@@ -125,4 +128,30 @@ void		place_basic(t_fill *game)
 		game->exit = 0;
 		fill_up(game);
 	}
+}
+
+void	place_smallmap(t_fill *game)
+{
+	//dprintf(2,"playing small\n");
+	int row;
+	int col;
+
+	row = 0;
+	while (row < game->ROW(m_size))
+	{
+		col = game->COL(m_size);
+		while ( col >= 0 )
+		{
+			if (valid_move_static(game, row, col))
+			{
+				if (row == 0)
+					game->top = 0;
+				adj_place_vals(game, row, col);
+				return ;
+			}
+			col--;
+		}
+		row++;
+	}
+	fill_up(game);
 }

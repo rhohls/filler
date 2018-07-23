@@ -33,6 +33,14 @@ def shell_exe(player1, player2, map):
     result = open("filler.trace", "r")
     lines = result.readlines()
 
+    if len(lines) > 4:
+        print("~~~~")
+        print ("!!! There was an error with", player1, "playing", player2, "!!!")
+        print(lines[2], end='')
+        print("~~~~")
+        A = input("WE HAVE AN ERROR HERE")
+        print(A)
+
     scoreline = lines[-1]
     scoreline = scoreline.rstrip()
 
@@ -41,25 +49,44 @@ def shell_exe(player1, player2, map):
 
     return nums
 
-#players = ["abanlin", "carli" , "champely", "grati", "hcao", "superjeannot", ]
+players = ["abanlin", "carli" , "champely", "grati", "hcao", "superjeannot", ]
 players = ["carli"]
 player2 = "rhohls"
-maps = ["map00"]#, "map01"]#, "map02"]
+maps = ["map00", "map01"]#, "map02"]
+#maps = ["map02"]
+#maps = ["map00"]
 replay = 10
 
-for i in range(replay):
-    for map in maps:
+def print_result(player1, player2, result):
+    if player2 == "rhohls":
+        if nums[0] > nums[1]:
+            print(color.red, player1, "got: ", result[0], color.end)
+            print(player2, "got: ", result[1])
+        else:
+            print(player1, "got: ", result[0])
+            print(color.green, player2, "got: ", result[1], color.end)
+    else:
+        if nums[0] > nums[1]:
+            print(color.green, player1, "got: ", result[0], color.end)
+            print(player2, "got: ", result[1])
+        else:
+            print(player1, "got: ", result[0])
+            print(color.red, player2, "got: ", result[1], color.end)
+    print("")
+
+"""playing the game:"""
+for map in maps:
+    for i in range(replay):
         print("~~~ Now playing on:", map, "~~~")
         for player1 in players:
-            nums = shell_exe(player1, player2, map)
-           # print (nums)
-            if (nums[0] > nums[1]):
-                print(color.red, player1, "got: ", nums[0], color.end)
-                print(player2, "got: ", nums[1])
+            if i % 2 == 0:
+                player2 = player1
+                player1 = "rhohls"
             else:
-                print(player1, "got: ", nums[0])
-                print(color.green, player2, "got: ", nums[1], color.end)
-            print("")
+                player2 = "rhohls"
+            nums = shell_exe(player1, player2, map)
+            print_result(player1, player2, nums)
+
 
 #print(type(nums[0]))
 

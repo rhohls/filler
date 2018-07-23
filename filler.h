@@ -35,6 +35,7 @@ typedef struct		s_fill
 	int				initial;
 	int				trimmed[2];
 	int 			exit;
+	int				top;
 }					t_fill;
 
 void	adj_place_vals(t_fill *game, int row, int col);
@@ -67,6 +68,7 @@ void	reset_heat(t_fill *game);
 void	edge_heat(t_fill *game);
 void	remove_heat(t_fill *game);
 void    place_basic(t_fill *game);
+void	place_smallmap(t_fill *game);
 void    fill_up(t_fill *game);
 
 int		right_up_complex(t_fill *game, int curr_row, int curr_col);

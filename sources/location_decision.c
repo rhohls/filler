@@ -94,19 +94,28 @@ void	decide(t_fill *game)
 	ht_mp_prop[1] = 0;
 	ht_mp_prop[2] = 0;
 //	ft_putstr_fd("in decide\n",2);
-	while (highest_map(game, ht_mp_prop) > 0)
+//	dprintf(2, "if statment: %i %i %i %i\n",(game->ROW(m_size) < 20) , (game->COL(m_size) < 20), (game->sym == 'X'), (game->top));
+	if ((game->ROW(m_size) < 20) && (game->COL(m_size) < 20) && 
+		(game->sym == 'X') && (game->top))
 	{
-		game->heat_map[ht_mp_prop[1]][ht_mp_prop[2]] = 0;
-		ht_mp_prop[0] = 0;
-	//	dprintf(2,"##checking valid move from heat map for row:%i col:%i\n", ht_mp_prop[1], ht_mp_prop[2]);
-	//	dprintf(2, "above valid\n"); 
-		if (valid_move_static(game, ht_mp_prop[1], ht_mp_prop[2]))
-		{
-			game->ROW(place) = ht_mp_prop[1];
-			game->COL(place) = ht_mp_prop[2];
-			return ;
-		}
+		place_smallmap(game);
 	}
-//	ft_putstr_fd("now playing basic\n",2);
-	place_basic(game);
+	else
+	{
+		while (highest_map(game, ht_mp_prop) > 0)
+		{
+			game->heat_map[ht_mp_prop[1]][ht_mp_prop[2]] = 0;
+			ht_mp_prop[0] = 0;
+		//	dprintf(2,"##checking valid move from heat map for row:%i col:%i\n", ht_mp_prop[1], ht_mp_prop[2]);
+		//	dprintf(2, "above valid\n"); 
+			if (valid_move_static(game, ht_mp_prop[1], ht_mp_prop[2]))
+			{
+				game->ROW(place) = ht_mp_prop[1];
+				game->COL(place) = ht_mp_prop[2];
+				return ;
+			}
+		}
+	//	ft_putstr_fd("now playing basic\n",2);
+		place_basic(game);
+	}
 }

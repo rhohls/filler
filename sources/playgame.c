@@ -27,6 +27,7 @@ t_fill	*play_game(int fd)
 		game = (t_fill *)malloc(sizeof(t_fill));
 		game->initial = 0;
 		game->exit = 0;
+		game->top = 1;
 	}
 
 	int fd2;
@@ -71,18 +72,19 @@ t_fill	*play_game(int fd)
 		else if (line[0] == '*' || line[0] == '.') //get actual piece
 		{
 
-	//		ft_putstr_fd("getting pi\n", 2);
+		//	ft_putstr_fd("getting pi\n", 2);
 			get_piece(game, line, fd);
-	//		ft_putstr_fd("got piece\n",2);
-//			printstate(game, 0);
+		//	ft_putstr_fd("adding heat\n",2);
+		//	printstate(game, 0);
 			edge_heat(game);
-//			ft_putstr_fd("added heat\n",2);
+		//	ft_putstr_fd("deciding\n",2);
 			decide(game);		
 		//	printstate(game, 2);
-//			ft_putstr_fd("decided\n",2);
+		//	ft_putstr_fd("copying game\n",2);
 			copy_game_map(game);
-	//		ft_putstr_fd("copying game\n",2);
+		//	ft_putstr_fd("reseting heat\n",2);
 			reset_heat(game);
+		//	ft_putstr_fd("placeing piece\n",2);
 			place_piece(game);
 
 		}
