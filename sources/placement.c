@@ -11,16 +11,9 @@
 /* ************************************************************************** */
 
 #include "../filler.h"
-/*
-static void	place_trim(t_fill *game)
-{
-	game->ROW(place) += game->ROW(trimmed);
-	game->COL(place) += game->COL(trimmed);
-}
-*/
+
 void	place_piece(t_fill *game)
 {
-	//place_trim(game);
 	ft_putnbr(ROW(game->place) - game->ROW(trimmed));
 	ft_putchar(' ');
 	ft_putnbr(COL(game->place) - game->COL(trimmed));

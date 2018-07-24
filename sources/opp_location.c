@@ -58,7 +58,32 @@ int			op_quadrant(t_fill *game)
 
 	pos = op_location(game);
 	if (pos)
-		return (quadrant(game, pos[0],pos[1]));
+		return (quadrant(game, pos[0], pos[1]));
 	else
 		return (-1);
+}
+
+void		place_smallmap(t_fill *game)
+{
+	int row;
+	int col;
+
+	row = 0;
+	while (row < game->ROW(m_size))
+	{
+		col = game->COL(m_size);
+		while (col >= 0)
+		{
+			if (valid_move_static(game, row, col))
+			{
+				if (row == 0)
+					game->top = 0;
+				adj_place_vals(game, row, col);
+				return ;
+			}
+			col--;
+		}
+		row++;
+	}
+	fill_up(game);
 }

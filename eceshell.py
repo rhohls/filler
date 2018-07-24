@@ -54,7 +54,7 @@ player2 = "rhohls"
 maps = ["map00", "map01"]#, "map02"]
 #maps = ["map02"]
 #maps = ["map00"]
-replay = 1
+replay = 3
 
 def print_result(player1, player2, result):
     if player2 == "rhohls":

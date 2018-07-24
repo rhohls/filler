@@ -19,7 +19,7 @@
 ** 3...o
 ** 4oooo
 ** only check the 'o'
-** 
+**
 ** Place trim reasigns the place piece with trimmed vals
 */
 
@@ -84,21 +84,17 @@ int	left_down_complex(t_fill *game, int curr_row, int curr_col)
 	int row;
 	int col;
 
-//	dprintf(2, "in left down complex\n");
 	col = 0;
 	while (col <= curr_col)
 	{
-	//	dprintf(2, "first while with row:%i and col:%i\n", curr_row, col);
 		if (valid_move_static(game, curr_row, col))
 		{
-	//		dprintf(2, "in if\n");
 			adj_place_vals(game, curr_row, col);
 			return (1);
 		}
 		col++;
 	}
 	row = game->ROW(m_size);
-//	dprintf(2, "half way\n");
 	while (row >= curr_row)
 	{
 		if (valid_move_static(game, row, curr_col))
@@ -108,7 +104,6 @@ int	left_down_complex(t_fill *game, int curr_row, int curr_col)
 		}
 		row--;
 	}
-//	dprintf(2, "bad exit\n");
 	return (0);
 }
 

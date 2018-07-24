@@ -12,13 +12,14 @@
 
 #include "../filler.h"
 
-void init_maps(t_fill *game)
+void	init_maps(t_fill *game)
 {
 	gen_map(game);
 	gen_heatmap(game);
 	game->initial++;
 	reset_heat(game);
 }
+
 void	gen_heatmap(t_fill *game)
 {
 	int count;
@@ -30,11 +31,6 @@ void	gen_heatmap(t_fill *game)
 		game->heat_map[count] = (int *)malloc(sizeof(int) * game->COL(m_size));
 		count++;
 	}
-//	dprintf(2, "\nmap_size %i, count %i\n",game->ROW(m_size), count);
-//	game->heat_map[0][0] = 1;
-//	game->heat_map[0][1] = 1;
-//	game->heat_map[0][2] = 1;
-//	dprintf(2, "size of array == %zu\n", sizeof(game->heat_map[0]) / sizeof(game->heat_map[0][0]));
 	reset_heat(game);
 }
 

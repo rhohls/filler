@@ -70,7 +70,6 @@ void		trim_piece(t_fill *game)
 
 	row = 0;
 	col = 0;
-
 	trim_bottom(game, row, col);
 	trim_right(game, row, col);
 	trim_top(game, row, col);
