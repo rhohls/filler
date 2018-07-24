@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../filler.h"
+#include "../includes/filler.h"
 
 int	in_board(int row, int col, t_fill *game)
 {

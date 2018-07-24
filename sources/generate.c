@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../filler.h"
+#include "../includes/filler.h"
 
 void	init_maps(t_fill *game)
 {

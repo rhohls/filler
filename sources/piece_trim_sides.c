@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "../filler.h"
+#include "../includes/filler.h"
 
 static void	rm_col_right(t_fill *game, int col_rm)
 {

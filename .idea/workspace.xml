@@ -2,26 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a448b0f2-8533-4538-a62a-1342ebed0d15" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eceshell.py" beforeDir="false" afterPath="$PROJECT_DIR$/eceshell.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filler.trace" beforeDir="false" afterPath="$PROJECT_DIR$/filler.trace" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameres.txt" beforeDir="false" afterPath="$PROJECT_DIR$/gameres.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filler.h" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/libft" beforeDir="false" afterPath="$PROJECT_DIR$/libft" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/objects/basic_moves.o" beforeDir="false" afterPath="$PROJECT_DIR$/objects/basic_moves.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/objects/opp_location.o" beforeDir="false" afterPath="$PROJECT_DIR$/objects/opp_location.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/objects/printstate.o" beforeDir="false" afterPath="$PROJECT_DIR$/objects/printstate.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/players/rhohls.filler" beforeDir="false" afterPath="$PROJECT_DIR$/resources/players/rhohls.filler" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rhohls.filler" beforeDir="false" afterPath="$PROJECT_DIR$/rhohls.filler" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sources/ai.c" beforeDir="false" afterPath="$PROJECT_DIR$/sources/ai.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sources/basic_moves.c" beforeDir="false" afterPath="$PROJECT_DIR$/sources/basic_moves.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sources/complex_move.c" beforeDir="false" afterPath="$PROJECT_DIR$/sources/complex_move.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sources/generate.c" beforeDir="false" afterPath="$PROJECT_DIR$/sources/generate.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sources/heat_manip.c" beforeDir="false" afterPath="$PROJECT_DIR$/sources/heat_manip.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sources/in_board.c" beforeDir="false" afterPath="$PROJECT_DIR$/sources/in_board.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sources/location_decision.c" beforeDir="false" afterPath="$PROJECT_DIR$/sources/location_decision.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sources/opp_location.c" beforeDir="false" afterPath="$PROJECT_DIR$/sources/opp_location.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sources/piece_trim.c" beforeDir="false" afterPath="$PROJECT_DIR$/sources/piece_trim.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sources/piece_trim_sides.c" beforeDir="false" afterPath="$PROJECT_DIR$/sources/piece_trim_sides.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sources/placement.c" beforeDir="false" afterPath="$PROJECT_DIR$/sources/placement.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sources/playgame.c" beforeDir="false" afterPath="$PROJECT_DIR$/sources/playgame.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sources/printstate.c" beforeDir="false" afterPath="$PROJECT_DIR$/sources/printstate.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sources/valid_move.c" beforeDir="false" afterPath="$PROJECT_DIR$/sources/valid_move.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/testing/main.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/test_add_heat.c" beforeDir="false" afterPath="$PROJECT_DIR$/testing/test_add_heat.c" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />

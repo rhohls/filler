@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../filler.h"
+#include "../includes/filler.h"
 
 static int	valid_check(t_fill *game, int row, int col, int *pos)
 {
