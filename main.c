@@ -30,7 +30,7 @@ int main()
 
 	if (get_next_line(0, &line) != 1)
 		return (0);
-	if (line[0] == '$') //initialize player symbol
+	if (line[0] == '$')
 	{
 		game->sym = (line[10] == '1' ? 'O' : 'X');
 		game->op_sym[0] = (line[10] == '2' ? 'O' : 'X');

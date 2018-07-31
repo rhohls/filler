@@ -51,13 +51,14 @@ def shell_exe(player1, player2, map):
 players = ["abanlin", "carli" , "champely", "grati", "hcao", "superjeannot", ]
 #players = ["carli"]
 player2 = "rhohls"
+og_player = "rhohls"
 maps = ["map00", "map01"]#, "map02"]
 #maps = ["map02"]
 #maps = ["map00"]
 replay = 3
 
 def print_result(player1, player2, result):
-    if player2 == "rhohls":
+    if player2 == og_player:
         if nums[0] > nums[1]:
             print(color.red, player1, "got: ", result[0], color.end)
             print(player2, "got: ", result[1])
@@ -80,9 +81,9 @@ for map in maps:
         for player1 in players:
             if i % 2 == 0:
                 player2 = player1
-                player1 = "rhohls"
+                player1 = og_player
             else:
-                player2 = "rhohls"
+                player2 = og_player
             nums = shell_exe(player1, player2, map)
             print_result(player1, player2, nums)
 
